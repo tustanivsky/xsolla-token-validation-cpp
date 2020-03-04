@@ -1,5 +1,3 @@
-Check out https://github.com/tustanivsky/xsolla-token-validation-cpp/blob/master/Source/TokenValidationCpp/CppDemoWidget.cpp
-
 To use Xsolla Login SDK and validate JWT token in UE4 C++ projects following steps should be completed:
 
 1. Add `XsollaLogin` module dependency to your game's *Build.cs file
@@ -38,3 +36,5 @@ errorCallback.BindDynamic(this, &UCppDemoWidget::OnTokenValidationError);
 ```cpp
 XsollaLoginSubsystem->ValidateToken(successCallback, errorCallback);
 ```
+
+Use https://github.com/tustanivsky/xsolla-token-validation-cpp/blob/master/Source/TokenValidationCpp/CppDemoWidget.cpp as a reference.
