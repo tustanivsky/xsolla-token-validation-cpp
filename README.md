@@ -1,3 +1,5 @@
+Check out the lates plugin release on GitHub: https://github.com/xsolla/store-ue4-sdk/releases/tag/v0.4.9_4.24
+
 To use Xsolla Login SDK and validate JWT token in UE4 C++ projects following steps should be completed:
 
 1. Add `XsollaLogin` module dependency to your game's *Build.cs file
