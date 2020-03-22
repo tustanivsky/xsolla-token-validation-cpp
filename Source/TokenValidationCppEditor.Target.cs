@@ -8,7 +8,6 @@ public class TokenValidationCppEditorTarget : TargetRules
 	public TokenValidationCppEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V2;
 
 		ExtraModuleNames.AddRange( new string[] { "TokenValidationCpp" } );
 	}
