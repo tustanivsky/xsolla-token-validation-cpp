@@ -1322,6 +1322,12 @@ void UXsollaStoreSubsystem::LoadImageFromWeb(const FString& URL, const FOnImageL
 
 FString UXsollaStoreSubsystem::FormatPrice(float Amount, const FString& Currency) const
 {
+	if (Currency.IsEmpty())
+	{
+		UE_LOG(LogXsollaStore, Error, TEXT("%s: Price wasn't set for a specific item"), *VA_FUNC_LINE);
+		return FString();
+	}
+
 	auto Row = GetCurrencyLibrary()->FindRow<FXsollaStoreCurrency>(FName(*Currency), FString());
 	if (Row)
 	{
