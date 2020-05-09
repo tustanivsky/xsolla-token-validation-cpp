@@ -17,6 +17,9 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void TestTokenValidation(const FString& tokenToValidate);
 
+	UFUNCTION(BlueprintCallable)
+	FString GetUsernameFromToken(const FString& token);
+
 private:
 
 	UFUNCTION()
@@ -24,4 +27,7 @@ private:
 
 	UFUNCTION()
 	void OnTokenValidationError(const FString& Code, const FString& Description);
+
+	UFUNCTION()
+	void OnAttributesReceived();
 };

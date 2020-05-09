@@ -675,6 +675,25 @@ FString UXsollaLoginSubsystem::GetTokenProvider(const FString& token)
 	return Provider;
 }
 
+FString UXsollaLoginSubsystem::GetTokenParameter(const FString& Token, const FString& Parameter)
+{
+	TSharedPtr<FJsonObject> PayloadJsonObject;
+	if (!ParseTokenPayload(Token, PayloadJsonObject))
+	{
+		UE_LOG(LogXsollaLogin, Error, TEXT("%s: Can't parse token payload"), *VA_FUNC_LINE);
+		return FString();
+	}
+
+	FString ParameterValue;
+	if (!PayloadJsonObject->TryGetStringField(Parameter, ParameterValue))
+	{
+		UE_LOG(LogXsollaLogin, Error, TEXT("%s: Can't find parameter %s in token payload"), *VA_FUNC_LINE, *Parameter);
+		return FString();
+	}
+
+	return ParameterValue;
+}
+
 void UXsollaLoginSubsystem::LoadSavedData()
 {
 	LoginData = UXsollaLoginSave::Load();
